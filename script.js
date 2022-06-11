@@ -34,16 +34,18 @@ function getBrands() {
   fetch("https://e-carros-api.herokuapp.com/brands")
     .then((res) => res.json())
     .then((response) => {
-      brands.innerHTML = `${response.map(
-        (element, index) =>
-          `
+      brands.innerHTML = `${response
+        .map(
+          (element, index) =>
+            `
             <center key="${index}">
               <img src="${element.logo}"  width="80px" heigth="auto"/>
               <p> ${element.name} </p>
 
             </center>
           `
-      )}`;
+        )
+        .join("")}`;
     });
 }
 
